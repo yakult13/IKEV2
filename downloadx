@@ -73,8 +73,7 @@ conn ikev2-vpn
     rightsourceip=10.10.10.0/24
     rightdns=8.8.8.8,8.8.4.4
     auto=add
-    ' > 
-    /etc/ipsec.conf
+    ' > /etc/ipsec.conf
 
 echo ': RSA "server-key.pem"' >> /etc/ipsec.secrets
 echo ': PSK "freenetcafe"' >> /etc/ipsec.secrets
