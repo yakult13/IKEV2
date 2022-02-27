@@ -1,0 +1,7 @@
+read -p "Enter User:" user
+read -p "Enter Password:" pass
+echo \ '
+users : EAP "passx"' >> /etc/ipsec.secrets
+sed -i "s|users|$user|g" /etc/ipsec.secrets
+sed -i "s|passx|$pass|g" /etc/ipsec.secrets
+systemctl restart ipsec
