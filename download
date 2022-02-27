@@ -58,10 +58,26 @@ conn ikev2-vpn
     rightsourceip=10.10.10.0/24
     rightdns=8.8.8.8,8.8.4.4
     rightsendcert=never
-    eap_identity=%identity ' > 
+    eap_identity=%identity 
+    
+    conn xauth_psk
+    keyexchange=ikev1
+    ike=aes128-sha1-modp2048,aes128-sha1-modp1024,3des-sha1-modp1024,3des-sha1-modp1536
+    esp=aes128-sha1,3des-sha1
+    left=%defaultroute
+    leftauth=psk
+    leftsubnet=0.0.0.0/0
+    right=%any
+    rightauth=psk
+    rightauth2=xauth
+    rightsourceip=10.10.10.0/24
+    rightdns=8.8.8.8,8.8.4.4
+    auto=add
+    ' > 
     /etc/ipsec.conf
 
-echo ': RSA "server-key.pem"' > /etc/ipsec.secrets
+echo ': RSA "server-key.pem"' >> /etc/ipsec.secrets
+echo ': PSK "freenetcafe"' >> /etc/ipsec.secrets
 
 sudo systemctl restart strongswan
 
