@@ -22,7 +22,7 @@ ipsec pki --pub --in ~/pki/private/server-key.pem --type rsa \
 sudo cp -r ~/pki/* /etc/ipsec.d/
 sudo cp -r ~/pki/* /etc/ipsec.d/
 wget -q -O /etc/ipsec.conf https://github.com/yakult13/IKEV2/raw/main/ipsec.conf
-sed -i "s|ADDE|IPADDR|g" /etc/ipsec.conf
+sed -i "s|ADDE|$IPADDR|g" /etc/ipsec.conf
 echo ': RSA "server-key.pem"' >> /etc/ipsec.secrets
 echo ': PSK "freenetcafe"' >> /etc/ipsec.secrets
 sudo systemctl restart strongswan
