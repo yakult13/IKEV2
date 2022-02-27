@@ -29,7 +29,8 @@ sudo systemctl restart strongswan
 sudo ufw allow OpenSSH
 sudo ufw enable
 sudo ufw allow 500,4500/udp
-wget -q -O /etc/ufw/before.rules https://github.com/yakult13/IKEV2/raw/main/before.rules
+wget -q -O c https://github.com/yakult13/IKEV2/raw/main/before.rules
+chmod +x /etc/ufw/before.rules
 wget -q -O /etc/ufw/sysctl.conf https://github.com/yakult13/IKEV2/raw/main/sysctl.conf
 sudo ufw disable
 sudo ufw enable
