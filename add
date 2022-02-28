@@ -9,3 +9,5 @@ users : EAP "passx"' >> /etc/ipsec.secrets
 sed -i "s|users|$user|g" /etc/ipsec.secrets
 sed -i "s|passx|$pass|g" /etc/ipsec.secrets
 systemctl restart ipsec
+echo -e "SAVE THIS FILE AS PEM"
+cat /etc/ipsec.d/cacerts/ca-cert.pem
