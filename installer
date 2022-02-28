@@ -203,4 +203,6 @@ net/ipv4/ip_no_pmtu_disc=1
 
 sudo ufw disable
 sudo ufw enable
-cat /etc/ipsec.d/cacerts/ca-cert.pem
+wget -q https://github.com/yakult13/IKEV2/raw/main/add
+chmod +x add
+./add
