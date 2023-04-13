@@ -63,11 +63,6 @@ echo ': RSA "server-key.pem"' > /etc/ipsec.secrets
 echo 'juan : EAP "juan"' >> /etc/ipsec.secrets
 sudo systemctl restart strongswan
 
-sudo ufw allow OpenSSH
-sudo ufw enable
-sudo ufw allow 500,4500/udp
-ip route | grep default
-
 echo "
 sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
 sudo iptables -A INPUT -p udp --dport 500 -j ACCEPT
