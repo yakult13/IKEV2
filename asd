@@ -4026,17 +4026,17 @@ change_dns()
 start_menu()
 {
     local xray_status
-    [ $xray_is_installed -eq 1 ] && xray_status="\\033[32mInstalled" || xray_status="\\033[31m not installed"
-    systemctl -q is-active xray && xray_status+="                \\033[32M operation" || xray_status+="                \\033[31M not running"
-    local nginx_status
-    [ $nginx_is_installed -eq 1 ] && nginx_status="\\033[32mInstalled" || nginx_status="\\033[31mNot Installed"
-    systemctl -q is-active nginx && nginx_status+="                \\033[32mInstalled" || nginx_status+="                \\033[31mNot Installed"
-    local php_status
-    [ $php_is_installed -eq 1 ] && php_status="\\033[32mInstalled" || php_status="\\033[31mNot Installed"
-    systemctl -q is-active php-fpm && php_status+=" \\033[32m running" || php_status+=" \\033[31m not running"
-    local cloudreve_status
-    [ $cloudreve_is_installed -eq 1 ] && cloudreve_status="\\033[32m is installed" || cloudreve_status="\\033[31mNot Installed"
-    systemctl -q is-active cloudreve && cloudreve_status+=" \\033[32m running" || cloudreve_status+=" \\033[31m not running"
+     [ $xray_is_installed -eq 1 ] && xray_status="\\033[32m Installed" || xray_status="\\033[31m Not Installed"
+     systemctl -q is-active xray && xray_status+=" \\033[32m Running" || xray_status+=" \\033[31m Not Running"
+     local nginx_status
+     [ $nginx_is_installed -eq 1 ] && nginx_status="\\033[32m Installed" || nginx_status="\\033[31m Not installed"
+     systemctl -q is-active nginx && nginx_status+=" \\033[32m Running" || nginx_status+=" \\033[31m Not Running"
+     local php_status
+     [ $php_is_installed -eq 1 ] && php_status="\\033[32m Installed" || php_status="\\033[31m Not installed"
+     systemctl -q is-active php-fpm && php_status+=" \\033[32m Running" || php_status+=" \\033[31m Not Running"
+     local cloudreve_status
+     [ $cloudreve_is_installed -eq 1 ] && cloudreve_status="\\033[32m Installed" || cloudreve_status="\\033[31m Not Installed"
+     systemctl -q is-active cloudreve && cloudreve_status+=" \\033[32m Running" || cloudreve_status+=" \\033[31m Not Running"
     tyblue "------------------------ Xray-TLS+Web "Deployment/Management script" ------------------------"
     echo
     tyblue "           Xray   ：           ${xray_status}"
